@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.31d6cfe0.css",
-    "main.js": "/static/js/main.0cdda9c4.js",
-    "index.html": "/index.html",
-    "main.0cdda9c4.js.map": "/static/js/main.0cdda9c4.js.map"
+    "main.css": "/react-reactfeedbackapp/static/css/main.31d6cfe0.css",
+    "main.js": "/react-reactfeedbackapp/static/js/main.0cdda9c4.js",
+    "index.html": "/react-reactfeedbackapp/index.html",
+    "main.0cdda9c4.js.map": "/react-reactfeedbackapp/static/js/main.0cdda9c4.js.map"
   },
   "entrypoints": [
     "static/css/main.31d6cfe0.css",
