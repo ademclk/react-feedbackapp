@@ -1,13 +1,9 @@
-import { useState } from 'react'
-
-function FeedbackItem() {
-    const [rating, setRating] = useState(9)
-    const [feedback, setFeedback] = useState('This is an example Feedback Item.')
+function FeedbackItem({ item }) {
 
     return (
         <div className="card">
-            <div className="num-display">{rating}</div>
-            <div className="text-display">{feedback}</div>
+            <div className="num-display">{item.rating}</div>
+            <div className="text-display">{item.text}</div>
         </div>
     )
 }
