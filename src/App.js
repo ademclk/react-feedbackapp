@@ -6,13 +6,19 @@ import FeedbackSample from './data/FeedbackSample'
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackSample)
-  
+
+  const deleteFeedback = (id) => {
+    if (window.confirm('Are you sure you want to delete this feedback?')) {
+      setFeedback(feedback.filter((item)=> item.id !== id))
+    }
+  }
+
   return (
     <>
       <Header />
       <div className="container">
         <h1>Hello from App component.</h1>
-        <FeedbackList feedbacks = {feedback} />
+        <FeedbackList feedbacks={feedback} handleDelete={deleteFeedback} />
       </div>
     </>
   )
