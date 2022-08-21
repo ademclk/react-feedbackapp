@@ -3,14 +3,14 @@ import Card from './shared/Card'
 import Button from './shared/Button'
 import RatingValue from './RatingValue'
 
-function FeedbackForm() {
+function FeedbackForm({handleAdd}) {
   const [text, setText] = useState('')
-  const [rating, setRating] = useState(0)
+  const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
   const [warning, setWarning] = useState('')
 
   const handleTextChange = (e) => {
-    if (text === '') {
+    if (text === '') { 
       setBtnDisabled(true)
     } else if (text !== '' && text.trim().length < 30) {
       setWarning('Text must be less than 30 characters')
@@ -22,11 +22,26 @@ function FeedbackForm() {
     setText(e.target.value)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (text.trim().length > 30) {
+      const newFeedback = {
+        text,
+        rating
+      }
+      handleAdd(newFeedback)
+
+      setText('')
+      setBtnDisabled (true)
+    }
+  }
+
+
   return (
     <Card>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Rate our service, please.</h2>
-        <RatingValue select= {(rating) => console.log(rating)} />
+        <RatingValue select={(rating) => console.log(rating)} />
         <div className='input-group'>
           <input
             onChange={handleTextChange}
