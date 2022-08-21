@@ -9,16 +9,16 @@ function Button({ children, version, type, isDisabled }) {
 }
 
 Button.defaultProps = {
-  type: "button",
-  version: "primary",
+  type: 'button',
+  version: 'primary',
   isDisabled: false,
 };
 
 Button.propTypes = {
-    children: PropTypes.node.isRequired,
-    version: PropTypes.string,
-    type: PropTypes.string,
-    isDisabled: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  version: PropTypes.string,
+  type: PropTypes.string,
+  isDisabled: PropTypes.string,
 };
 
 export default Button;

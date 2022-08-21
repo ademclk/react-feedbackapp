@@ -1,11 +1,23 @@
-import { useState } from "react";
-import Card from "./shared/Card";
-import Button from "./shared/Button";
+import { useState } from 'react';
+import Card from './shared/Card';
+import Button from './shared/Button';
 
 function FeedbackForm() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [warning, setWarning] = useState('');
 
   const handleTextChange = (e) => {
+
+    if (text === '') {
+      setBtnDisabled(true);
+    } else if (text !== '' && text.trim().length < 30) {
+      setWarning ('Text must be less than 30 characters');
+      setBtnDisabled(true);
+    } else {
+      setWarning(null)
+      setBtnDisabled(false);
+    }
     setText(e.target.value);
   };
 
@@ -21,8 +33,11 @@ function FeedbackForm() {
             placeholder='Send your feedback'
             value={text}
           />
-          <Button type='submit' version='primary'>Send</Button>
+          <Button type='submit' version='primary' isDisabled={btnDisabled}>
+            Send
+          </Button>
         </div>
+        {warning && <div className='warning'>{warning}</div>}
       </form>
     </Card>
   );

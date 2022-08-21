@@ -179,7 +179,7 @@ input:focus {
   opacity: 1;
 }
 
-.message {
+.warning {
   padding-top: 10px;
   text-align: center;
   color: rebeccapurple;
